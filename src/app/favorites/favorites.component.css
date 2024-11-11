@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #FFD700; 
+    margin-bottom: 10px;
+    display: flex; 
+    align-items: center; 
+  }
+  
+  button {
+    background-color: #FFD700;
+    color: #000000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto; 
+  }
+  
+  button:hover {
+    background-color: #FFC107; 
+  }

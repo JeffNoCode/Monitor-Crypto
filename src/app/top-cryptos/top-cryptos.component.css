@@ -1,0 +1,31 @@
+.crypto-list {
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .crypto-item {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #FFD700; 
+    transition: transform 0.2s;
+  }
+  
+  .crypto-item:hover {
+    transform: scale(1.01);
+  }
+  
+  button {
+    background-color: #FFD700; 
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #FFC107; 
+  }
