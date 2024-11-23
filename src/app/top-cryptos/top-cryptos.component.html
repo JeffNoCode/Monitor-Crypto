@@ -1,8 +1,11 @@
-
-<div class="crypto-list">
-  <div class="crypto-item" *ngFor="let crypto of topCryptos">
-    <h3>{{ crypto.name }} ({{ crypto.symbol.toUpperCase() }})</h3>
-    <p>Preço: R$ {{ (crypto.current_price * 5.5).toFixed(2) }}</p> 
-    <button (click)="addFavorite(crypto)">Adicionar aos Favoritos</button>
+<div class="corpo">
+  <div class="container">
+    <div class="crypto-list">
+      <div *ngFor="let crypto of topCryptos" class="crypto-card">
+        <h3>{{ crypto.name }} ({{ crypto.symbol.toUpperCase() }})</h3>
+        <p>Preço: R$ {{ crypto.current_price | currencyConvert }}</p>
+        <button (click)="addFavorite(crypto)">Adicionar aos Favoritos</button>
+      </div> 
+    </div>
   </div>
 </div>

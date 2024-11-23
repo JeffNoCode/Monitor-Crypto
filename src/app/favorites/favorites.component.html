@@ -1,11 +1,17 @@
-<h2>Favoritos</h2>
-<ul>
-  <li *ngFor="let crypto of favorites">
-    <span>{{ crypto.name }} - {{ prices[crypto.id] | currency:'BRL' }}</span>
-    <button (click)="removeFavorite(crypto)">Remover dos Favoritos</button>
-  </li>
-</ul>
+<div class="corpo">
+  <div class="favorites-container">
+    <h2>Favoritos</h2>
+    <ul>
+      <li *ngFor="let crypto of favorites">
+        <span app-favorites [appHighlight]="(prices[crypto.id] || 0) - (crypto.previousPrice || 0)">
+          {{ crypto.name }} - {{ prices[crypto.id] | currencyConvert }}
+        </span>
+        <button (click)="removeFavorite(crypto)">Remover dos Favoritos</button>
+      </li>
+    </ul>
 
-<div *ngIf="favorites.length === 0">
-  <p>Nenhuma criptomoeda adicionada aos favoritos.</p>
+    <div *ngIf="favorites.length === 0">
+      <p>Nenhuma criptomoeda adicionada aos favoritos.</p>
+    </div>
+  </div>
 </div>

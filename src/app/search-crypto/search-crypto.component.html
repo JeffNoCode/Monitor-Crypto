@@ -1,9 +1,16 @@
-
-<input [(ngModel)]="query" placeholder="Digite o nome ou símbolo da criptomoeda" />
-<button (click)="search()">Buscar</button>
-
-<div *ngIf="crypto" class="crypto-search-result">
-  <h3>{{ crypto.name }} ({{ crypto.symbol.toUpperCase() }})</h3>
-  <p>Preço: R$ {{ (crypto.current_price * 5.5).toFixed(2) }}</p>
-  <button (click)="addFavorite(crypto)">Adicionar aos Favoritos</button>
-</div>
+<div class="corpo">
+  <div class="crypto-search-container">
+    <h2>Buscar Criptomoeda</h2>
+    <label for="crypto-search">Digite o nome ou símbolo da criptomoeda:</label>
+    <div class="search-input-container">
+      <input id="crypto-search" [(ngModel)]="query" placeholder="Ex: Bitcoin (BTC)" />
+      <button (click)="search()">Buscar</button>
+    </div>
+  
+    <div *ngIf="crypto" class="crypto-search-result">
+      <h3>{{ crypto.name }} ({{ crypto.symbol.toUpperCase() }})</h3>
+      <p>Preço: R$ {{ crypto.current_price ? crypto.current_price.toFixed(2) : 'N/A' }}</p>
+      <button (click)="addFavorite(crypto)">Adicionar aos Favoritos</button>
+    </div>
+  </div>
+  </div>

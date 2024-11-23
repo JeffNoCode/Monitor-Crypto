@@ -1,6 +1,16 @@
-<nav>
-  <a routerLink="/">Top 10 Criptomoedas</a>
-  <a routerLink="/search">Buscar Criptomoeda</a>
-  <a routerLink="/favorites">Favoritos</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="container">
+  <nav class="sidebar" [class.minimized]="isMinimized">
+    <button (click)="toggleSidebar()" class="toggle-button">
+      <span *ngIf="isMinimized">▶</span>
+      <span *ngIf="!isMinimized">◀</span>
+    </button>
+    <ul *ngIf="!isMinimized">
+      
+      <div appFadeIn><li><a routerLink="/">Home</a></li></div>
+      <div appFadeIn><li><a routerLink="/search">Buscar Criptomoeda</a></li></div>
+      <div appFadeIn><li><a routerLink="/favorites">Favoritos</a></li></div>
+    
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

@@ -1,70 +1,99 @@
+.corpo{
+    font-family: 'Arial', sans-serif;
+    background-color: #a1b585;
+    color: #121f00;
+    margin: 10px;
+    padding: 0px;
+    height: 100vh;
+    max-height: 100vh;
+  
+}
+.crypto-search-container {
+  max-width: 600px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  background-color: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
 
 h2 {
-    font-size: 24px; 
-    color: #FFC107; 
-    margin-bottom: 20px; 
-    text-align: center; 
-    
-  }
-  
-  input {
-    margin: 30px 10px;
-    width: 100%; 
-    max-width: 400px; 
-    padding: 10px; 
-    border: 2px solid #ccc;
-    border-radius: 5px; 
-    font-size: 16px; 
-    margin-right: 10px; 
-    transition: border-color 0.3s; 
-  }
-  
-  input:focus {
-    border-color: #FFD700; 
-    outline: none; 
-  }
-  
-  button {
-    padding: 10px 15px;
-    background-color: #333; 
-    color: #fff; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #555;
-  }
-  
-  .crypto-search-result {
-    margin-top: 20px; 
-    padding: 15px;
-    border: 1px solid #ccc; 
-    border-radius: 5px;
-    background-color: #f9f9f9; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .crypto-search-result h3 {
-    margin: 0; 
-    font-size: 20px; 
-    color: #333;
-  }
-  
-  .crypto-search-result p {
-    font-size: 16px; 
-    color: #666; 
-    margin: 10px 0; 
-  }
-  
-  .crypto-search-result button {
-    margin-top: 10px; 
-    background-color: #FFD700; 
-    color: #333; 
-  }
-  
-  .crypto-search-result button:hover {
-    background-color: #FFC107; 
-  }
+  font-size: 24px; 
+  color: #FFC107; 
+  margin-bottom: 20px; 
+  text-align: center; 
+}
+
+label {
+  font-size: 16px; 
+  color: #333; 
+  display: block; 
+  margin-bottom: 10px; 
+}
+
+.search-input-container {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
+}
+
+input {
+  flex: 1; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  transition: border-color 0.3s; 
+  margin-right: 10px; 
+}
+
+input:focus {
+  border-color: #FFD700; 
+  outline: none; 
+}
+
+button {
+  padding: 10px 15px; 
+  background-color: #333; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+button:hover {
+  background-color: #555; 
+}
+
+.crypto-search-result {
+  margin-top: 20px; 
+  padding: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.crypto-search-result h3 {
+  margin: 0; 
+  font-size: 20px; 
+  color: #333; 
+}
+
+.crypto-search-result p {
+  font-size: 16px; 
+  color: #666; 
+  margin: 10px 0; 
+}
+
+.crypto-search-result button {
+  margin-top: 10px; 
+  background-color: #FFD700; 
+  color: #333; 
+}
+
+.crypto-search-result button:hover {
+  background-color: #FFC107; 
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CryptoService } from '../crypto.service';
+import { FavoritesService } from '../favorites.service'; // Importe o serviço de favoritos
 
 @Component({
   selector: 'app-top-cryptos',
@@ -8,9 +9,8 @@ import { CryptoService } from '../crypto.service';
 })
 export class TopCryptosComponent implements OnInit {
   topCryptos: any[] = [];
-  favorites: any[] = [];
 
-  constructor(private cryptoService: CryptoService) { }
+  constructor(private cryptoService: CryptoService, private favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
     this.cryptoService.getTopCryptos().subscribe(data => {
@@ -19,11 +19,7 @@ export class TopCryptosComponent implements OnInit {
   }
 
   addFavorite(crypto: any) {
-    if (!this.favorites.includes(crypto)) {
-      this.favorites.push(crypto);
-      alert(`${crypto.name} adicionado aos favoritos!`);
-    } else {
-      alert(`${crypto.name} já está nos favoritos!`);
-    }
+    this.favoritesService.addFavorite(crypto);
+    alert(`${crypto.name} adicionado aos favoritos!`);
   }
 }

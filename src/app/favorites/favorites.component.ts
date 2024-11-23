@@ -9,7 +9,7 @@ import { CryptoService } from '../crypto.service';
 })
 export class FavoritesComponent implements OnInit {
   favorites: any[] = [];
-   prices: { [key: string]: number } = {};
+  prices: { [key: string]: number } = {};
 
   constructor(private favoritesService: FavoritesService, private cryptoService: CryptoService) {}
 
@@ -21,8 +21,14 @@ export class FavoritesComponent implements OnInit {
   fetchPrices() {
     this.favorites.forEach(crypto => {
       this.cryptoService.getCryptoPrice(crypto.id).subscribe(priceData => {
-        if (priceData[crypto.id]) {
-          this.prices[crypto.id] = priceData[crypto.id].brl; 
+        if (priceData[crypto.id] && priceData[crypto.id].brl) {
+          
+          this.prices[crypto.id] = Number(priceData[crypto.id].brl); 
+
+         
+          crypto.previousPrice = typeof crypto.previousPrice === 'number' ? crypto.previousPrice : this.prices[crypto.id];
+        } else {
+          console.warn(`Preço não encontrado para ${crypto.id}`, priceData);
         }
       });
     });

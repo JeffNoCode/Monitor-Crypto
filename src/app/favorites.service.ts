@@ -1,22 +1,45 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
-  private favorites: any[] = [];
+  private storageKey = 'favoritos';
 
-  constructor() {}
-
-  addFavorite(crypto: any) {
-    this.favorites.push(crypto);
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    // Inicializa o storage se não houver dados
+    if (isPlatformBrowser(this.platformId)) {
+      if (!sessionStorage.getItem(this.storageKey)) {
+        sessionStorage.setItem(this.storageKey, JSON.stringify([]));
+      }
+    }
   }
 
-  removeFavorite(crypto: any) {
-    this.favorites = this.favorites.filter(fav => fav.id !== crypto.id);
+  addFavorite(crypto: { id: string; name: string }) {
+    if (isPlatformBrowser(this.platformId)) {
+      const favorites = this.getFavorites();
+      // Verifica se a criptomoeda já está nos favoritos
+      if (!favorites.some((fav: { id: string }) => fav.id === crypto.id)) {
+        favorites.push(crypto);
+        sessionStorage.setItem(this.storageKey, JSON.stringify(favorites));
+      }
+    }
   }
 
-  getFavorites() {
-    return this.favorites;
+  removeFavorite(crypto: { id: string }) {
+    if (isPlatformBrowser(this.platformId)) {
+      let favorites = this.getFavorites();
+      favorites = favorites.filter((fav: { id: string }) => fav.id !== crypto.id);
+      sessionStorage.setItem(this.storageKey, JSON.stringify(favorites));
+    }
+  }
+
+  getFavorites(): { id: string; name: string }[] {
+    if (isPlatformBrowser(this.platformId)) {
+      const favorites = sessionStorage.getItem(this.storageKey);
+      return favorites ? JSON.parse(favorites) : [];
+    }
+    return []; // Retorna um array vazio se não estiver no navegador
   }
 }
