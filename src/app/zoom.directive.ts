@@ -1,9 +1,9 @@
 import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appFadeIn]'
+  selector: '[appZoom]'
 })
-export class FadeInDirective {
+export class ZoomDirective {
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
   @HostListener('mouseenter') onMouseEnter() {

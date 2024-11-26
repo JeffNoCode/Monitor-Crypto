@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { TopCryptosComponent } from './top-cryptos/top-cryptos.component';
 import { SearchCryptoComponent } from './search-crypto/search-crypto.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-import { CurrencyConverterPipe } from './currency-converter.pipe';
+import { CurrencyFormatterPipe } from './currencyFormatter.pipe';
 import { HighlightDirective } from './highlight.directive';
-import { FadeInDirective } from './fade-in.directive';
+import { ZoomDirective } from './zoom.directive';
 
 @NgModule({
   declarations: [
@@ -17,15 +17,15 @@ import { FadeInDirective } from './fade-in.directive';
     TopCryptosComponent,
     SearchCryptoComponent,
     FavoritesComponent,
-    CurrencyConverterPipe,
+    CurrencyFormatterPipe,
     HighlightDirective,
-    FadeInDirective
+    ZoomDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule  // Adicione esta linha
+    FormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

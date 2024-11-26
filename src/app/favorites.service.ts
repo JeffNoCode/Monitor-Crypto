@@ -8,7 +8,7 @@ export class FavoritesService {
   private storageKey = 'favoritos';
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    // Inicializa o storage se não houver dados
+    
     if (isPlatformBrowser(this.platformId)) {
       if (!sessionStorage.getItem(this.storageKey)) {
         sessionStorage.setItem(this.storageKey, JSON.stringify([]));
@@ -19,7 +19,7 @@ export class FavoritesService {
   addFavorite(crypto: { id: string; name: string }) {
     if (isPlatformBrowser(this.platformId)) {
       const favorites = this.getFavorites();
-      // Verifica se a criptomoeda já está nos favoritos
+      
       if (!favorites.some((fav: { id: string }) => fav.id === crypto.id)) {
         favorites.push(crypto);
         sessionStorage.setItem(this.storageKey, JSON.stringify(favorites));
@@ -40,6 +40,10 @@ export class FavoritesService {
       const favorites = sessionStorage.getItem(this.storageKey);
       return favorites ? JSON.parse(favorites) : [];
     }
-    return []; // Retorna um array vazio se não estiver no navegador
+    return []; 
+  }
+  isFavorite(crypto: { id: string}): boolean {
+    const favorites = this.getFavorites();
+    return favorites.some((fav: {id: string}) => fav.id == crypto.id);
   }
 }

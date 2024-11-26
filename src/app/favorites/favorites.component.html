@@ -4,7 +4,7 @@
     <ul>
       <li *ngFor="let crypto of favorites">
         <span app-favorites [appHighlight]="(prices[crypto.id] || 0) - (crypto.previousPrice || 0)">
-          {{ crypto.name }} - {{ prices[crypto.id] | currencyConvert }}
+          {{ crypto.name }} - {{ prices[crypto.id] | currencyFormatter }}
         </span>
         <button (click)="removeFavorite(crypto)">Remover dos Favoritos</button>
       </li>

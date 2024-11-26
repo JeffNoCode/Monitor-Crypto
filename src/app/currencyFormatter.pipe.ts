@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'currencyConvert'
+  name: 'currencyFormatter'
 })
-export class CurrencyConverterPipe implements PipeTransform {
+export class CurrencyFormatterPipe implements PipeTransform {
   transform(value: number): string {
     return `R$ ${value.toFixed(2)}`;
   }

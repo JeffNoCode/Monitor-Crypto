@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   tittle = "monitor-crypto"
-  isMinimized = true; // Estado inicial da barra lateral
+  isMinimized = true; 
 
   toggleSidebar() {
-    this.isMinimized = !this.isMinimized; // Alterna o estado
+    this.isMinimized = !this.isMinimized; 
   }
 }
