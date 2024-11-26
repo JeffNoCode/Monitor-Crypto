@@ -22,11 +22,12 @@ export class FavoritesComponent implements OnInit {
     this.favorites.forEach(crypto => {
       this.cryptoService.getCryptoPrice(crypto.id).subscribe(priceData => {
         if (priceData[crypto.id] && priceData[crypto.id].brl) {
-          
           this.prices[crypto.id] = Number(priceData[crypto.id].brl); 
-
-         
-          crypto.previousPrice = typeof crypto.previousPrice === 'number' ? crypto.previousPrice : this.prices[crypto.id];
+          
+          
+          if (typeof crypto.previousPrice !== 'number') {
+            crypto.previousPrice = this.prices[crypto.id];
+          }
         } else {
           console.warn(`Preço não encontrado para ${crypto.id}`, priceData);
         }
@@ -38,5 +39,6 @@ export class FavoritesComponent implements OnInit {
     this.favoritesService.removeFavorite(crypto);
     this.favorites = this.favoritesService.getFavorites();
     delete this.prices[crypto.id]; 
+    this.fetchPrices(); 
   }
 }

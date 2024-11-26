@@ -17,7 +17,7 @@ export class HighlightDirective {
     } else if (this.appHighlight < 0) {
       this.renderer.setStyle(this.el.nativeElement, 'color', 'red');
     } else {
-      this.renderer.setStyle(this.el.nativeElement, 'color', 'black');
+      this.renderer.setStyle(this.el.nativeElement, 'color', 'white');
     }
       
   }
